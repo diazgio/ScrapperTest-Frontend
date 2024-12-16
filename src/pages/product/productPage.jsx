@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { ProductsService } from "../../service/productsService";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Star } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 const productsService = new ProductsService();
 
 const ProductPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [productData, setproductData] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -26,9 +28,21 @@ const ProductPage = () => {
     }
   }, [productData]);
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
 
   return (
     <div className="flex flex-col m-auto pt-5 w-[95%]">
+       <div className="sticky top-5 right-5 flex justify-end">
+        <button
+          onClick={handleBackClick}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      </div>
       { productData.data ? (
         <>
           <div className="grid grid-cols-2 gap-10">
