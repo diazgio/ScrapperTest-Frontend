@@ -49,9 +49,9 @@ const CreateModal = ({ isOpen, onRequestClose }) => {
       className="flex flex-col inset-0 items-center justify-center h-max z-50 max-w-[70%] m-auto bg-white rounded-lg p-8"
       overlayClassName="fixed flex m-auto inset-0 bg-black bg-opacity-75"
     >      
-      <h1 className="w-full text-center text-2xl font-bold text-gray-700 pt-2 pb-4">
+      <h2 className="w-full text-center text-2xl font-bold text-gray-700 pt-2 pb-4">
         CREATE PRODUCT
-      </h1>
+      </h2>
       <form onSubmit={handleSubmit} className="">
         <div className="mb-4">
           <label
